@@ -27,7 +27,8 @@ driver.find_element(By.XPATH, "//form/div[1]/input").send_keys("demo@gmail.com")
 driver.find_element(By.XPATH, "//form/div[2]/input").send_keys("321321321")
 safe_click(driver,By.XPATH, "//form/input")
 
-driver.find_element(By.XPATH,"//*[@id='sidebar']/form/div[1]/input").send_keys("shoes")
+safe_click(driver, By.XPATH, "//form[1]/div[1]/input[@xpath='2']")
+driver.find_element(By.XPATH, "//form[1]/div[1]/input[@xpath='2']").send_keys("hello")
 
 while True:
     pass
