@@ -41,8 +41,19 @@ for option in options:
     if option.get_attribute("value") == "option2":
         option.click()
 
-while True:
-    pass
+
+
+
+
+# handle java pop up
+MyName = "Sean Peer"
+driver.find_element(By.CSS_SELECTOR, "#name").send_keys(MyName)
+driver.find_element(By.ID, "alertbtn").click()
+alert = driver.switch_to.alert
+alertext = driver.switch_to.alert.text
+print(alertext)
+alert.accept()
+
 
 # driver.find_element(By.XPATH, "//div[1]/div[@class='cen-left-align']/fieldset/input").send_keys("isr")
 time.sleep(2)
