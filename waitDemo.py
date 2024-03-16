@@ -74,5 +74,4 @@ while True:
     if inp == "1":
        flag = True
        if flag:
->>>>>>> origin/main
            break
