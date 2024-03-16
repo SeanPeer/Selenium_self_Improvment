@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import time
 
 from selenium import webdriver
@@ -11,6 +11,11 @@ driver = webdriver.Chrome(service=serv)
 driver.implicitly_wait(10) # WAIT MAX 5 SECONDS TO ELEMENT TO APPEAR
 
 driver.get("https://rahulshettyacademy.com/seleniumPractise/#/")
+products = driver.find_elements(By.XPATH, "//div[@class='products']/div/h4")
+list_products = []
+for product in products:
+    list_products.append(product.text)
+
 driver.find_element(By.XPATH, "//input[@type='search']").send_keys("Cu")
 time.sleep(3) # Needed more waiting
 results = driver.find_elements(By.XPATH, "//div[@class='products']/div")
@@ -35,6 +40,11 @@ print(total)
 web_total = int(driver.find_element(By.XPATH, "//span[@class='totAmt']").text)
 assert total == web_total, f"web total is not equal to sum, got: {web_total}"
 
+# Assignment
+web_total_after_dis = int(driver.find_element(By.XPATH, "//span[@class='discountAmt']").text)
+assert web_total >= web_total_after_dis, f"After discount client is paying more, got: {web_total_after_dis}"
+print(list_products)
+# done assignment
 flag = False
 while True:
     pass
